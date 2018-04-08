@@ -1,3 +1,12 @@
+/*
+ * Código fonte busca binária em C
+ * Tem como objetivo localizar um elemento
+ * em um vetor já previamente ordenado
+ * Autor: Guilherme Nunes Melo Ferreira
+ * Universidade: FEI - SBCampo
+ * Livre publicação e utilização
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,7 +16,7 @@ int main(){
 
     int tamanho_vetor; // Tamanho do vetor a ser alocado
 
-    int i; // Variável de controle do FOR
+    int i; // Variável de controle do looping FOR
 
     int valor; // Variável que irá guardar o valor temporário da posicao do vetor
 
@@ -20,14 +29,11 @@ int main(){
 
     printf("Digite um tamanho para o vetor: ");
 
-
     scanf("%d", &tamanho_vetor); // Recebe o tamanho do vetor
-
 
     v = (int *) malloc(tamanho_vetor * sizeof(int)); /* Aloca dinâmicamente
                                                       * o espaco de memoria do vetor */
-
-
+    
     if (v == NULL) // Verifica se houve erro na alocacao de memoria
     {
         printf("Problema ao alocar vetor!");
@@ -41,7 +47,6 @@ int main(){
             scanf("%d", &valor);
             v[i] = valor;
         }
-
 
         printf("Digite o elemento que deseja pesquisa no vetor: "); /* Recebe o valor a
                                                                      * ser pesquisado no vetor */
@@ -61,7 +66,6 @@ int main(){
                 controle_pesquisa = 0;
                 break;
             }
-
                 /**
                 * Se a pesquisa for menor que o meio do vetor,
                 * então o fim do vetor será o meio atual -1
@@ -71,7 +75,6 @@ int main(){
                 final = meio - 1;
                 continue;
             }
-
                 /**
                 * Se a pesquisa for maior que o meio do vetor, então a pesquisa
                 * comecará a partir do meio atual do vetor
@@ -81,7 +84,6 @@ int main(){
                 inicio = meio + 1;
                 continue;
             }
-
                 /**
                 * Caso nada seja encontrado, define o controle_pesquisa = 1
                 */
@@ -92,9 +94,8 @@ int main(){
             }
 
         }
-
         /**
-        * Verificaçã da variavel de controle que indica se o elemento foi encontrado ou nao.
+        * Verificação da variavel de controle que indica se o elemento foi encontrado ou nao.
         * Se for 0, o elemento foi encontrado, caso contrário, o elemento nao foi
         * encontrado. Basta entao exibir as mensagens.
         */
